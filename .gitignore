@@ -1,0 +1,13 @@
+data/
+*.fastq
+*.fastq.gz
+*.bam
+*.sam
+*.log
+work/
+cromwell-*
+.miniwdl/
+__pycache__/
+.pytest_cache/
+*.pyc
+.DS_Store
