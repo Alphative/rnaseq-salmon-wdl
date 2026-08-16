@@ -22,6 +22,6 @@ task fastp_trim {
     }
 
     runtime {
-        docker: ""
+        docker: "rnaseq-salmon-wdl:qc"
     }
 }
