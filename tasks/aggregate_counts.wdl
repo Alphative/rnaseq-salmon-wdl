@@ -19,5 +19,7 @@ task aggregate_counts {
 
     runtime{
         docker: "rnaseq-salmon-wdl:analysis"
+        cpu: 1
+        memory: "4 GB"
     }
 }

@@ -4,12 +4,14 @@ task fastp_trim {
         String sample_id
         File read1
         File read2
+        Int cpus = 4
     }
 
     command <<<
     fastp \
     -i ~{read1} -I ~{read2} \
     -o ~{sample_id}_trimmed_1.fastq.gz -O ~{sample_id}_trimmed_2.fastq.gz \
+    --thread ~{cpus} \
     --html ~{sample_id}_fastp.html \
     --json ~{sample_id}_fastp.json
     >>>
@@ -23,5 +25,7 @@ task fastp_trim {
 
     runtime {
         docker: "rnaseq-salmon-wdl:qc"
+        cpu: cpus
+        memory: "4 GB"
     }
 }

@@ -25,5 +25,7 @@ task salmon_quant{
 
     runtime{
         docker: "rnaseq-salmon-wdl:salmon"
+        cpu: cpus
+        memory: "8 GB"
     }
 }

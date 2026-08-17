@@ -16,5 +16,7 @@ task salmon_index{
 
     runtime {
         docker: "rnaseq-salmon-wdl:salmon"
+        cpu: 4
+        memory: "16 GB"
     }
 }

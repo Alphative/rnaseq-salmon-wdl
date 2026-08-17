@@ -23,5 +23,7 @@ task differential_expression{
 
     runtime{
         docker : "rnaseq-salmon-wdl:analysis"
+        cpu: 1
+        memory: "16 GB"
     }
 }
