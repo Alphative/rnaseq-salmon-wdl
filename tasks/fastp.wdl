@@ -27,5 +27,6 @@ task fastp_trim {
         docker: "rnaseq-salmon-wdl:qc"
         cpu: cpus
         memory: "4 GB"
+        maxRetries: 2
     }
 }

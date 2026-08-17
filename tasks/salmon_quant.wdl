@@ -27,5 +27,6 @@ task salmon_quant{
         docker: "rnaseq-salmon-wdl:salmon"
         cpu: cpus
         memory: "8 GB"
+        maxRetries: 2
     }
 }
