@@ -13,3 +13,4 @@ __pycache__/
 .DS_Store
 20*_rnaseq_pipeline/
 _LAST
+inputs.json
