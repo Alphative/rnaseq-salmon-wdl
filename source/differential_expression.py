@@ -11,7 +11,7 @@ def prepare_data(counts, sample_sheet):
     return counts, sample_sheet
 
 
-def run_differential_expression(counts_path, sample_sheet_path, output_path):
+def run_differential_expression(counts_path, sample_sheet_path, treatment_level, reference_level, output_path):
     counts = pd.read_csv(counts_path)
     sample_sheet = pd.read_csv(sample_sheet_path)
     counts, sample_sheet = prepare_data(counts, sample_sheet)
@@ -23,7 +23,7 @@ def run_differential_expression(counts_path, sample_sheet_path, output_path):
     )
     dds.deseq2()
 
-    stats = DeseqStats(dds, contrast=["condition", "treatment", "control"])
+    stats = DeseqStats(dds, contrast=["condition", treatment_level, reference_level])
     stats.summary()
 
     results = stats.results_df
@@ -34,7 +34,9 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--counts", required=True)
     parser.add_argument("--sample_sheet", required=True)
+    parser.add_argument("--treatment_level", required=True)
+    parser.add_argument("--reference_level", required=True)
     parser.add_argument("--output", required=True)
     args = parser.parse_args()
 
-    run_differential_expression(args.counts, args.sample_sheet, args.output)
+    run_differential_expression(args.counts, args.sample_sheet, args.treatment_level, args.reference_level, args.output)

@@ -17,6 +17,8 @@ workflow rnaseq_pipeline {
     File cdna_reference
     File samples_tsv
     File condition_sheet
+    String treatment_level = "treatment"
+    String reference_level = "control"
     }
 
     Array[Sample] samples = read_objects(samples_tsv)
@@ -61,6 +63,8 @@ workflow rnaseq_pipeline {
         input :
         counts_file = aggregate_counts.counts_matrix,
         sample_sheet_file = condition_sheet,
+        treatment_level = treatment_level,
+        reference_level = reference_level,
         output_name = "de_results.csv"
     }
 }
