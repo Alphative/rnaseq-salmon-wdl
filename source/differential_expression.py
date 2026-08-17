@@ -13,6 +13,7 @@ counts = pd.read_csv(args.counts)
 sample_sheet = pd.read_csv(args.sample_sheet)
 sample_sheet = sample_sheet.set_index("sample_id")
 counts = counts.set_index("Name").T
+counts = counts.round().astype(int)
 
 dds = DeseqDataSet(
     counts=counts,
