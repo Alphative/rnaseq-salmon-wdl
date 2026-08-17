@@ -7,8 +7,7 @@ RUN apt-get update && apt-get install -y \
 
 RUN pip install --no-cache-dir \
     pandas \
-    pydeseq2 \
-    matplotlib
+    pydeseq2
 
 COPY source/aggregate_counts.py /opt/scripts/aggregate_counts.py
 COPY source/differential_expression.py /opt/scripts/differential_expression.py
