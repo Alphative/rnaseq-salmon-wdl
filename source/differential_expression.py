@@ -22,7 +22,7 @@ dds = DeseqDataSet(
 )
 dds.deseq2()
 
-stats = DeseqStats(dds)
+stats = DeseqStats(dds, contrast=["condition", "treatment", "control"])
 stats.summary()
 
 results = stats.results_df
