@@ -10,7 +10,7 @@ task salmon_quant{
 
     command <<<
     mkdir salmon_index
-    mv ~{sep=' ' index_files} salmon_index/
+    cp ~{sep=' ' index_files} salmon_index/
     salmon quant \
     -i salmon_index \
     -l A \
