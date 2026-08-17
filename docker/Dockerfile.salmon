@@ -1,0 +1,12 @@
+FROM public.ecr.aws/lts/ubuntu:22.04
+
+RUN apt-get update && apt-get install -y \
+    wget \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN wget https://github.com/COMBINE-lab/salmon/releases/download/v1.10.0/salmon-1.10.0_linux_x86_64.tar.gz \
+    && tar -xzf salmon-1.10.0_linux_x86_64.tar.gz \
+    && mv salmon-latest_linux_x86_64 /opt/salmon \
+    && rm salmon-1.10.0_linux_x86_64.tar.gz
+
+ENV PATH="/opt/salmon/bin:${PATH}"
